@@ -1,0 +1,7 @@
+ <h1>Books</h1>
+   <% @books.each do |book| %>
+      <p>Title</p>
+      <span><%= book.title, book_path(book.id) %></span>
+      <p>Option</p>
+      <span><%= book.option %></span>
+   <% end %>
