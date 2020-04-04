@@ -1,18 +1,12 @@
 class UsersController < ApplicationController
-  def index
-    user_id = current_user
-    @users = User.all(user_id)
-  end
   def show
-  	@user = User.find(params[:id])
-  	@books = @user.books(params[:page]).reverse_order
+    @user = User.find(params[:id])
+    @books = @user.books.page(params[:page]).reverse_order
   end
-  def create
-  	@book = Book.new(book_params)
-    @book.user_id = current_user.id
-    @book.save
-    redirect_to book_path
-end
+  def index
+  	@user = User.find(params[:id])
+  	@books = @user.books.page(params[:page]).reverse_order
+  end
 def edit
   @user = User.find(params[:id])
 end
@@ -22,7 +16,7 @@ def update
   redirect_to users_path(user.id)
 end
 private
-    def book_params
-        params.require(:book_image).permit(:name, :image, :introduction)
+    def user_params
+        params.require(:user).permit(:name, :image, :introduction)
     end
 end
