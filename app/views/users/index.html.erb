@@ -1,13 +1,21 @@
- <h1>Books</h1>
-   <% @books.each do |book| %>
+ <h1>Users</h1>
 
-   <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg' %>
-      <p>Title</p>
-      <span>
+  <table>
+   <thead>
+   	<tr>
+   	  <th><p>image</p></th>
+      <th><p>name</p></th>
+      <th><p></p></th>
+    </tr>
+    </thead>
 
-        <%=link_to book.title, book_path(book.id) %>
-          
-        </span>
-      <p>Option</p>
-      <span><%= book.option %></span>
-   <% end %>
+   <tbody>
+    <tr>
+   <td><%= attachment_image_tag @user, :image do %></td>
+   <td><%= @user.name %></td>
+   <td><%=link_to "Show", user_path %></td>
+   </tr>
+
+    <% end %>
+</tbody>
+</table>

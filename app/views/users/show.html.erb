@@ -1,7 +1,20 @@
-    <h1>Users</h1>
-   <% @users.each do |user| %>
-      <p>image</p>
-      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg' %>
-      <p>name</p>
-      <span><%= @user.name %></span>
+    <h1>Books</h1>
+
+   <table>
+    <thead>
+    <tr>
+      <th><p></p></th>
+      <th><p>Title</p></th>
+      <th><p>Opinion</p></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+      <td><%= attachment_image_tag @user, :image do %></td>
+      <td><span><%= @book.title %></span></td>
+      <td><span><%= @book.opinion %></span></td>
+    </tr>
    <% end %>
+   </tbody>
+   </table>

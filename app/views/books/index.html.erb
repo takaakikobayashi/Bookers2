@@ -1,11 +1,25 @@
  <h1>Books</h1>
-   <% @books.each do |book| %>
-      <p>Title</p>
-      <span>
 
-      	<%=link_to book.title, book_path(book.id) %>
+ <table>
+   	<thead>
+   	<tr>
+   	  <th><p></p></th>
+      <th><p>Title</p></th>
+      <th><p>Opinion</p></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+     <td><%= attachment_image_tag @user, :image do %></td>
+      <td><span>
+
+      	<%=link_to book.title, book_path(book.id) do %>
       		
-      	</span>
-      <p>Option</p>
-      <span><%= book.option %></span>
-   <% end %>
+      	</span></td>
+      <td><span><%= book.opinion %></span></td>
+    </tr>
+    <% end %>
+    <% end %>
+    </tbody>
+    </table>
