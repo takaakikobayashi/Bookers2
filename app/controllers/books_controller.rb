@@ -10,13 +10,15 @@ class BooksController < ApplicationController
         redirect_to book_path(@book.id)
     else
         @books = Book.all
+        @book = Book.new
+        @user_id = User.find(current_user.id)
         render action: :index
     end
    end
     def index
         @books = Book.all
         @book = Book.new
-        @book = @book.user
+        @user_id = User.find(current_user.id)
     end
     def show
         @book = Book.where(id: params[:id])
