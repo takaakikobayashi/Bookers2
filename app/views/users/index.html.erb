@@ -15,7 +15,7 @@
 <tr><td>introduction</td><td><%= @user_id.introduction %></td></tr>
 </table>
 
-<%= link_to edit_user_path(@user_id), class: "btn btn-default btn-sm" do %>
+<%= link_to edit_user_path(@user_id), class: "btn btn-default btn-block" do %>
 <i class="glyphicon glyphicon-wrench"></i>
 <span></span>
 <% end %>
@@ -27,12 +27,12 @@
 <%= form_for(@book) do |f| %>
  
     <h4>Title</h4>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :size=> "36X10" %>
  
     <h4>Opinion</h4>
-    <%= f.text_area :opinion %><br>
+    <%= f.text_area :body, :size=> "35X10" %><br>
  
-    <%= f.submit('Create Book',class: 'btn btn-primary btn-lg my-1 mb-5 px-5') %>
+    <%= f.submit('Create Book',class: 'btn btn-primary btn-block') %>
     <% end %>
  
 </div>
@@ -40,7 +40,7 @@
 <div class="col-lg-9">
  <h1>Users</h1>
 
-<table class="table table-striped">
+<table class="table">
     <thead>
     <tr>
    	  <th><p>image</p></th>
@@ -51,7 +51,7 @@
 <% @users.each do |user| %>
    <tbody>
     <tr>
-   <span><td><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: "jpeg", class: "img-square pull-left image", fallback: "no_image.jpg" %></td></span>
+   <span><td><%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: "jpeg", class: "img-square pull-left image", fallback: "no_image.jpg",size:'50x50' %></td></span>
    <td><span><%= user.name %></span></td>
    <td><%=link_to "Show", show_user_path(user.id) %></td>
    </tr>
@@ -59,4 +59,7 @@
     <% end %>
 </tbody>
 </table>
-</table>
+</div>
+<p class="text-right">CopyRight Infratop.inc</p>
+</div>
+</div>
