@@ -6,6 +6,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @book = Book.new
     @books = @user.books
+    #@book_id = Book.find(params[:id])
+    #@user_id = @book_id.user
   end
   def index
   	@users = User.all
@@ -32,7 +34,7 @@ private
     def correct_user
       user = User.find(params[:id])
       if current_user != user
-        redirect_to root_path
+        redirect_to show_user_path(current_user.id)
       end
     end
 end

@@ -5,7 +5,7 @@
 <body>
 <nav class="navbar navbar-inverse">
     <div class="container">
-            <a class="navbar-brand">Bookers</a>
+            <h1 class="navbar-brand">Bookers</h1>
             <%= csrf_meta_tags %>
             <%= csp_meta_tag %>
 
@@ -19,13 +19,13 @@
 
      <li><%= link_to 'logout', destroy_user_session_path, method: :delete ,class: "glyphicon glyphicon-log-out" %></li>
     <% else %>
-    <li><%= link_to 'Home', home_index_path ,class: "glyphicon glyphicon-home" %></li>
+    <li><%= link_to 'Home', root_path ,class: "glyphicon glyphicon-home" %></li>
 
      <li><%= link_to 'About', home_about_path ,class: "glyphicon glyphicon-link" %></li>
 
     <li><%= link_to 'sign up', new_user_registration_path ,class: "glyphicon glyphicon-edit" %></li>
 
-    <li><%= link_to 'log in', new_user_session_path ,class: "glyphicon glyphicon-log-in" %></li>
+    <li><%= link_to 'login', new_user_session_path ,class: "glyphicon glyphicon-log-in" %></li>
     <% end %>
   </ul>
 </div>

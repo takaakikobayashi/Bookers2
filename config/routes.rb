@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'home/index'
-  get "home/about"
+  get 'home/index' => "home#index"
+  get "home/about" => "home#about"
   devise_for :users
 
   get "users/:id" => "users#show", as: "show_user"
